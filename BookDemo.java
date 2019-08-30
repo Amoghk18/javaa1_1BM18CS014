@@ -40,6 +40,7 @@ class BookDemo
     Scanner s=new Scanner(System.in);
     System.out.println("Enter the number of Books to be created");
     Book ob=new Book();
+    Book ob1=new Book();
     int n=s.nextInt();
     Book arr[]=new Book[n];
     for(int i=0;i<n;i++)
