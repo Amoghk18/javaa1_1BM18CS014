@@ -67,8 +67,6 @@ class Semiprime
         }
         if(c==1)
             return 1;
-        else 
-            return 0;
     }
 }
 class SemiprimeDemo {
