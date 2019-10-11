@@ -43,7 +43,6 @@ class Saving extends Acc
   double intr;
   void compute()
   {
-    input();
     Scanner s=new Scanner(System.in);
     System.out.println("enter rate of intrest");
     rate=s.nextFloat();
@@ -60,7 +59,6 @@ class Curr extends Acc
 {
   void check()
   {
-    input();
     int service=1000;
     Scanner s=new Scanner(System.in);
     System.out.println("Enter minimum balance");
@@ -76,28 +74,34 @@ class Acctype
   public static void main(String args[])
   {
     Scanner s=new Scanner(System.in);
-    System.out.println("Enter choice \n 1.savings account\n 2.current account");
-    int c=s.nextInt();
+    int c;
     Acc ref=null;
-    if(c==1)
-    {
-      ref=new Saving();
-      ref.compute();
-    }
-    else
-    {
-      ref=new Curr();
-      ref.check();
-    }
-    System.out.println("Enter choice \n 1.withdraw\n2.deposit");
-    c=s.nextInt();
-    if(c==1){
-      ref.withdraw();
-      ref.display();
-    }
-    else{ 
-      ref.deposit();
-      ref.display();
-    }
-  } 
+    do{
+      System.out.println("Enter choice \n 1.savings account\n 2.current account");
+      c=s.nextInt();
+      if(c==1)
+      {
+        ref=new Saving();
+        ref.input();
+        ref.compute();
+      }
+      else
+      {
+        ref=new Curr();
+        ref.input();
+        ref.check();
+      }
+      System.out.println("Enter choice \n 1.withdraw\n2.deposit \n enter 0 to exit");
+      c=s.nextInt();
+      if(c==1){
+        ref.withdraw();
+        ref.check();
+        ref.display();
+      }
+      else{
+        ref.deposit();
+        ref.display();
+      }
+   }while(c!=0); 
+}
 }
